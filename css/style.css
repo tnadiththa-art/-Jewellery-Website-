@@ -1,0 +1,186 @@
+/* BLUSH Stone+ Luxury Jewelry Design System */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --color-cream-50: #FCFAF7;
+  --color-cream-100: #F7F3EB;
+  --color-cream-200: #EFE8DC;
+  --color-stone-800: #292524;
+  --color-stone-900: #1C1917;
+  --color-stone-600: #57534E;
+  
+  --color-gold-300: #E8D3A7;
+  --color-gold-400: #D8BD80;
+  --color-gold-500: #C5A059;
+  --color-gold-600: #A8823B;
+  --color-gold-700: #856426;
+
+  --color-blush-50: #FFF9F7;
+  --color-blush-100: #FBF0EB;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-cream-50);
+  color: var(--color-stone-900);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F3EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8BD80;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
+
+/* Gold Gradient Effects */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #E5CE97 0%, #C5A059 50%, #9F7932 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B58A3E 0%, #8C6623 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-subtle {
+  border-color: rgba(197, 160, 89, 0.28);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite;
+}
+
+/* Floating animation */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+/* Sparkle twinkle */
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15) rotate(15deg); }
+}
+.animate-twinkle {
+  animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+/* Backdrop blur & glassmorphism */
+.glass-nav {
+  background: rgba(252, 250, 247, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 206, 151, 0.3);
+}
+
+/* Product Card Image Zoom */
+.product-card-img-container {
+  overflow: hidden;
+  position: relative;
+}
+.product-card-img-container img {
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.product-card:hover .product-card-img-container img {
+  transform: scale(1.07);
+}
+
+/* Drawer transitions */
+.drawer-backdrop {
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.drawer-panel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Modal transitions */
+.modal-overlay {
+  transition: opacity 0.25s ease-out;
+}
+.modal-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+}
+
+/* Marquee / Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Star rating fill */
+.star-filled {
+  color: #C5A059;
+}
+.star-empty {
+  color: #D6D3D1;
+}
+
+/* Hide spin buttons in number inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Selection style */
+::selection {
+  background: #E8D3A7;
+  color: #1C1917;
+}
